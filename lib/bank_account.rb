@@ -12,4 +12,8 @@ class BankAccount
     @balance += amount
   end
 
+  def withdraw(date, amount)
+    @balance -= amount
+  end
+
 end
