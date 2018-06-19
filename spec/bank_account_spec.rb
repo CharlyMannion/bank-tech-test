@@ -3,9 +3,7 @@
 require './lib/bank_account'
 
 describe BankAccount do
-
   subject(:account) { described_class.new(transaction_class: fake_transaction_class) }
-
   let(:fake_transaction_class) { double(:fake_transaction_class, new: transaction) }
   let(:transaction) { double(:transaction) }
 
