@@ -3,14 +3,14 @@
 require './lib/transaction'
 
 describe Transaction do
-  describe '#initialize' do
-    before do
-      transaction = Transaction.new('10-01-2012', 1000, 1000)
-    end
+  subject(:transaction) { described_class.new('10-01-2012') }
 
+  describe '#initialize' do
     it 'should have a date' do
-      transaction = Transaction.new('10-01-2012', 1000, 1000)
-      expect(transaction.date).to be('10-01-2012')
+      expect(transaction.date).to eq('10-01-2012')
     end
+    # it 'should have an amount' do
+    #
+    # end
   end
 end
