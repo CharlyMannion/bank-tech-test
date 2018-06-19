@@ -44,6 +44,10 @@ def has_bank_statement
   p account
 end
 
+# def create_bank_statement
+#   bank_statement = BankStatement.new
+# end
+
 create_new_account
 check_default_balance
 deposit_money

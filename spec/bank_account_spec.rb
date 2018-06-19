@@ -9,9 +9,9 @@ describe BankAccount do
     it 'should have a default balance of nil' do
       expect(account.balance).to eq BankAccount::DEFAULT_BALANCE
     end
-    # it 'should have a bank statement' do
-    #   expect(account.bank_statement).to eq {}
-    # end
+    it 'should have a bank statement' do
+      expect(account.bank_statement).to eq({})
+    end
   end
 
   describe 'tests that require a despoit of 1000 to have been made' do

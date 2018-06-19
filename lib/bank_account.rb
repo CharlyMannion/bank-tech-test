@@ -3,10 +3,11 @@
 class BankAccount
   DEFAULT_BALANCE = 0
 
-  attr_reader :balance
+  attr_reader :balance, :bank_statement
 
   def initialize
     @balance = DEFAULT_BALANCE
+    @bank_statement = {}
   end
 
   def deposit(_date, amount)
@@ -14,7 +15,7 @@ class BankAccount
   end
 
   def withdraw(_date, amount)
-    update_balance(-amount) 
+    update_balance(-amount)
   end
 
   private
