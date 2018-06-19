@@ -22,6 +22,9 @@ describe BankAccount do
       it 'should increase the bank balance by the specified amount' do
         expect(account.balance).to eq 1000
       end
+      it 'should add a transaction to the bank statement' do
+        expect(account.bank_statement).to include({date: '10-01-2012', amount: 1000, balance: 1000})
+      end
     end
     describe '#withdraw' do
       it 'should reduce the bank balance by the specified amount' do
