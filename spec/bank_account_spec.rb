@@ -45,4 +45,11 @@ describe BankAccount do
       expect(account.bank_statement).to include(transaction)
     end
   end
+
+  describe '#print_statement' do
+    it 'should format and return the bank statement' do
+      test_statement = account.bank_statement
+      expect(account.print_statement).to eq(test_statement)
+    end
+  end
 end
