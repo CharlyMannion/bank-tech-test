@@ -5,7 +5,6 @@
 require './lib/bank_account'
 require './lib/transaction'
 
-
 def create_new_account
   account = BankAccount.new
   p account
