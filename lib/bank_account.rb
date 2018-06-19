@@ -10,10 +10,16 @@ class BankAccount
   end
 
   def deposit(_date, amount)
-    @balance += amount
+    update_balance(amount)
   end
 
   def withdraw(_date, amount)
-    @balance -= amount
+    update_balance(-amount) 
+  end
+
+  private
+
+  def update_balance(amount)
+    @balance += amount
   end
 end

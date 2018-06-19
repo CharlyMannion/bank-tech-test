@@ -36,10 +36,19 @@ def view_balance
   p account.balance
 end
 
+def has_bank_statement
+  account = BankAccount.new
+  account.deposit('10-01-2012', 1000)
+  account.deposit('13-01-2012', 2000)
+  account.withdraw('14-01-2012', 500)
+  p account
+end
+
 create_new_account
 check_default_balance
 deposit_money
 withdraw_money
 view_balance
+has_bank_statement
 
 # irb -r './spec/feature_test.rb'
