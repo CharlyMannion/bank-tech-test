@@ -7,6 +7,10 @@ describe BankAccount do
   let(:fake_transaction_class) { double(:fake_transaction_class, new: transaction) }
   let(:transaction) { double(:transaction) }
 
+  it 'should respond to print_statement' do
+    expect(account).to respond_to(:print_statement)
+  end
+
   describe '#initialize' do
     it 'should have a default balance of nil' do
       expect(account.balance).to eq BankAccount::DEFAULT_BALANCE
