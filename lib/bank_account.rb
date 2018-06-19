@@ -18,8 +18,9 @@ class BankAccount
     create_transaction(date, amount, @balance)
   end
 
-  def withdraw(_date, amount)
+  def withdraw(date, amount)
     update_balance(-amount)
+    create_transaction(date, amount, @balance)
   end
 
   private
