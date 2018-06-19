@@ -34,9 +34,11 @@ describe BankAccount do
   end
 
   describe '#withdraw' do
-    it 'should reduce the bank balance by the specified amount' do
+    before do
       account.deposit('10-01-2012', 1000)
       account.withdraw('14-01-2012', 500)
+    end
+    it 'should reduce the bank balance by the specified amount' do
       expect(account.balance).to eq 500
     end
   end
