@@ -61,13 +61,24 @@ def initialize_transaction
   p transaction
 end
 
+def deposit_then_withdraw
+  account = BankAccount.new
+  account.deposit('10-01-2012', 1000)
+  account.deposit('13-01-2012', 2000)
+  account.withdraw('14-01-2012', 500)
+  # p account
+  p account.bank_statement
+  p account.balance
+end
+
 # create_new_account
 # check_default_balance
 # deposit_money
 # withdraw_money
 # view_balance
 # has_bank_statement
-despositing_adds_transaction_to_bank_statement
-initialize_transaction
+# despositing_adds_transaction_to_bank_statement
+# initialize_transaction
+deposit_then_withdraw
 
 # irb -r './spec/feature_test.rb'
