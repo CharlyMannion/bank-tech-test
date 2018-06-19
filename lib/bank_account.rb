@@ -7,7 +7,7 @@ class BankAccount
 
   def initialize
     @balance = DEFAULT_BALANCE
-    @bank_statement = {}
+    @bank_statement = []
   end
 
   def deposit(_date, amount)

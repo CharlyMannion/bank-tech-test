@@ -10,7 +10,7 @@ describe BankAccount do
       expect(account.balance).to eq BankAccount::DEFAULT_BALANCE
     end
     it 'should have a bank statement' do
-      expect(account.bank_statement).to eq({})
+      expect(account.bank_statement).to eq([])
     end
   end
 
