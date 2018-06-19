@@ -3,6 +3,8 @@
 # irb -r './spec/feature_test.rb'
 
 require './lib/bank_account'
+require './lib/transaction'
+
 
 def create_new_account
   account = BankAccount.new
@@ -56,7 +58,8 @@ def despositing_adds_transaction_to_bank_statement
 end
 
 def initialize_transaction
-  transaction = Transaction.new
+  transaction = Transaction.new('10-01-2012', 1000, 1000)
+  p transaction
 end
 
 # create_new_account
