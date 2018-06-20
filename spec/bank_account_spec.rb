@@ -8,10 +8,6 @@ describe BankAccount do
   let(:transaction) { double(:transaction, date: "10/01/2012", amount: "1000.00", balance: "1000.00") }
   let(:printer) { double(:printer) }
 
-  it 'should respond to print_statement' do
-    expect(account).to respond_to(:print_statement)
-  end
-
   describe '#initialize' do
     it 'should have a default balance of nil' do
       expect(account.balance).to eq BankAccount::DEFAULT_BALANCE

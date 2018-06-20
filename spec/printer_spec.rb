@@ -6,10 +6,6 @@ describe Printer do
   subject(:printer) { described_class.new }
   let(:transaction1) { double(:transaction, date: "10/01/2012", amount: "1000.00", balance: "1000.00") }
 
-  it 'should respond to print' do
-    expect(printer).to respond_to(:print_format)
-  end
-
   describe '#print_format' do
     it 'should print the full bank statement' do
       expected_heading = "date || credit || debit || balance\n"
