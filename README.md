@@ -40,8 +40,8 @@ I want my bank statement to include my bank balance
 * I tried to be mindful that I might be required to extend the programme based on additional requirements, so I wrote code that should be easy to change (e.g. extract the bank statement in to its own class)
 
 ## Diagrams
-file:///Users/charlymannion/Downloads/bank-tech-test.html
-file:///Users/charlymannion/Downloads/bank-tech-test-2.html
+* file:///Users/charlymannion/Downloads/bank-tech-test.html
+* file:///Users/charlymannion/Downloads/bank-tech-test-2.html
 
 ## Installation
 * Clone the repo 
