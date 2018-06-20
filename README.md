@@ -72,8 +72,45 @@ date || credit || debit || balance
 :0x00007fe0ec10a020 @date="10-01-2012", @amount=1000.0, @balance=1000.0>]
 ```
 
-## Test Coverage Screenshot
+## Test Coverage
+```
+Charlys-MacBook-Air:bank-tech-test charlymannion$ rspec -fd
 
+BankAccount
+  #initialize
+    should have a default balance of nil
+    should have a bank statement
+  #deposit
+    should increase the bank balance by the specified amount
+    should create a transaction
+    should be recorded in the bank statement
+  #withdraw
+    should reduce the bank balance by the specified amount
+    should create a transaction
+    should get recorded in the bank statement
+  #print_statement
+
+date || credit || debit || balance
+10/01/2012 || 1000.00 || 1000.00
+    should send a message to the the printer to print the bank statement
+
+Printer
+  #print_format
+    should print the full bank statement
+    should print the most recent transaction first
+
+Transaction
+  #initialize
+    should have a date
+    should have an amount
+    should have a balance
+
+Finished in 0.06862 seconds (files took 1.16 seconds to load)
+14 examples, 0 failures
+
+
+COVERAGE: 100.00% -- 101/101 lines in 7 files
+```
 
 ## Technologies 
 * ruby ~2.5.0
