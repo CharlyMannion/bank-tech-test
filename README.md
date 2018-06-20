@@ -32,21 +32,21 @@ I want my bank statement to include my bank balance
 ```
 
 ## Approach
-• I followed a TDD, OOP approach
-• I started by writing user stories for the given requirements (see below)
-• I then diagrammed the Classes and the messages that would pass between them
-• I then followed a process of red, green, refactor until I had satisfied the user stories
-• I used a trello board to keep track of my progress
-• I tried to be mindful that I might be required to extend the programme based on additional requirements, so I wrote code that should be easy to change (e.g. extract the bank statement in to its own class)
+* I followed a TDD, OOP approach
+* I started by writing user stories for the given requirements (see below)
+* I then diagrammed the Classes and the messages that would pass between them
+* I then followed a process of red, green, refactor until I had satisfied the user stories
+* I used a trello board to keep track of my progress
+* I tried to be mindful that I might be required to extend the programme based on additional requirements, so I wrote code that should be easy to change (e.g. extract the bank statement in to its own class)
 
 ## Diagrams
 file:///Users/charlymannion/Downloads/bank-tech-test.html
 file:///Users/charlymannion/Downloads/bank-tech-test-2.html
 
 ## Installation
-• Clone the repo 
-• Run bundle install
-• Run rspec to test
+* Clone the repo 
+* Run bundle install
+* Run rspec to test
 
 ## Running the App
 
@@ -55,10 +55,10 @@ file:///Users/charlymannion/Downloads/bank-tech-test-2.html
 
 
 ## Technologies 
-• ruby ~2.5.0
-• rspec
-• gem 'simplecov' - check the coverage of tests
-• gem 'rubocop' - check the code syntax
+* ruby ~2.5.0
+* rspec
+* gem 'simplecov' - check the coverage of tests
+* gem 'rubocop' - check the code syntax
 
 ## Trello
 https://trello.com/b/Nbg8sPvP/bank-tech-test
