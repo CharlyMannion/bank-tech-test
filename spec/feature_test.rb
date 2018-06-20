@@ -99,16 +99,17 @@ def create_printer
 end
 
 def printer_print_bank_statement
+  p "The printer returns the account's bank statement, as an aray of objects, when it is given it as an argument"
   printer = Printer.new
   account = BankAccount.new
   account.deposit('10-01-2012', 1000)
-  p account.bank_statement
+  account.deposit('13-01-2012', 2000)
+  account.withdraw('14-01-2012', 500)
   formatted_statement = printer.print(account.bank_statement)
   p formatted_statement
 end
 
-def
-
-create_printer
+# create_printer
 printer_print_bank_statement
+
 # irb -r './spec/feature_test.rb'
