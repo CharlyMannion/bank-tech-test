@@ -24,20 +24,18 @@ describe Printer do
   end
 
   describe '#print_format' do
-    it 'should print the column headings' do
+  #   it 'should print the column headings' do
+  #     expected_heading = "date || credit || debit || balance\n"
+  #     expected_transaction = "10/01/2012"
+  #     bank_statement = [expected_transaction]
+  #     expect { printer.print_format(bank_statement) }.to output(expected_heading).to_stdout
+  #   end
+    it 'should print the date of each transaction in the bank_statement' do
       expected_heading = "date || credit || debit || balance\n"
-      expected_transaction = "10/01/2012"
+      expected_transaction = "10/01/2012\n"
       bank_statement = [expected_transaction]
-      expect { printer.print_format(bank_statement) }.to output(expected_heading).to_stdout
+      expected_statement = expected_heading + expected_transaction
+      expect { printer.print_format(bank_statement) }.to output(expected_statement).to_stdout
     end
-    # it 'should print the date of each transaction in the bank_statement' do
-    #   expected_heading = "date || credit || debit || balance\n"
-    #   expected_transaction = "10/01/2012\n"
-    #   expected_statement = expected_heading + expected_transaction
-    #   expect { printer.print_format(bank_statement) }.to output(expected_statement).to_stdout
-    #   #hashed out return I want, passing test left in. Discover whether issue is with test or with methods
-    #   # expect(printer.print_format(bank_statement_array)).to eq(formatted_transaction3)
-    #   # expect(printer.print_format(bank_statement_array)).to eq("10-01-2012")
-    # end
   end
 end

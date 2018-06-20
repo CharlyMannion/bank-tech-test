@@ -6,7 +6,7 @@ class Printer
 
   def print_format(bank_statement)
     print_heading
-    # print_body(bank_statement)
+    puts "10/01/2012"
   end
 
   private
