@@ -56,7 +56,7 @@ describe BankAccount do
   #     account.print_statement
   #     p account
   #     p account.bank_statement
-  #     expect(fake_formatted_statement).to have_received(:print)
+  #     expect(fake_printer).to have_received(:print)
   #   end
   # end
 end

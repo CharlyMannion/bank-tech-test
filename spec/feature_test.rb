@@ -90,7 +90,23 @@ end
 # has_bank_statement
 # despositing_adds_transaction_to_bank_statement
 # initialize_transaction
-deposit_then_withdraw
-print_bank_statement
+# deposit_then_withdraw
+# print_bank_statement
+
+def create_printer
+  printer = Printer.new
+  p printer
+end
+
+def printer_print_bank_statement
+  printer = Printer.new
+  p printer
+  bank_statement = [1, 2, 3]
+  printer.print(bank_statement)
+end
+
+create_printer
+printer_print_bank_statement
+
 
 # irb -r './spec/feature_test.rb'

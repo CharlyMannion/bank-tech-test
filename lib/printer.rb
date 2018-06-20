@@ -2,4 +2,7 @@
 #
 class Printer
 
+  def print(bank_statement)
+  end
+
 end
