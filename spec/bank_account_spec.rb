@@ -5,7 +5,7 @@ require './lib/bank_account'
 describe BankAccount do
   subject(:account) { described_class.new(transaction_class: fake_transaction_class) }
   let(:fake_transaction_class) { double(:fake_transaction_class, new: transaction) }
-  let(:transaction) { double(:transaction, date: "10/01/2012") }
+  let(:transaction) { double(:transaction, date: "10/01/2012", amount: "1000.00", balance: "1000.00") }
   let(:printer) { double(:printer) }
 
   it 'should respond to print_statement' do
