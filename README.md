@@ -49,7 +49,28 @@ I want my bank statement to include my bank balance
 * Run rspec to test
 
 ## Running the App
+```
+Charlys-MacBook-Air:bank-tech-test charlymannion$ irb
+2.5.1 :001 > require './lib/bank_account'
+ => true
+2.5.1 :002 > bank_account = BankAccount.new
+ => #<BankAccount:0x00007fe0ec10ee18 @balance=0, @bank_statement=[], @transaction_class=Transaction, @printer=#<Printer:0x00007fe0ec10edc8>>
+2.5.1 :003 > bank_account.deposit('10-01-2012', 1000.00)
+ => [#<Transaction:0x00007fe0ec10a020 @date="10-01-2012", @amount=1000.0, @balance=1000.0>]
+2.5.1 :004 > bank_account.deposit('13-01-2012', 1000.00)
+ => [#<Transaction:0x00007fe0ec10a020 @date="10-01-2012", @amount=1000.0, @balance=1000.0>, #<Transaction:0x00007fe0ec105250 @date="13-01-2012", @amount=1000.0, @balance=2000.0>]
+2.5.1 :005 > bank_account.withdraw('14-01-2012', 500.00)
+ => [#<Transaction:0x00007fe0ec10a020 @date="10-01-2012", @amount=1000.0, @balance=1000.0>, #<Transaction:0x00007fe0ec105250 @date="13-01-2012", @amount=1000.0, @balance=2000.0>, #<Transactio
+n:0x00007fe0ec99bb58 @date="14-01-2012", @amount=500.0, @balance=1500.0>]
+2.5.1 :006 > bank_account.print_statement
+date || credit || debit || balance
+14-01-2012 || 500.0 || 1500.0
 
+13-01-2012 || 1000.0 || 2000.0
+10-01-2012 || 1000.0 || 1000.0
+ => [#<Transaction:0x00007fe0ec99bb58 @date="14-01-2012", @amount=500.0, @balance=1500.0>, #<Transaction:0x00007fe0ec105250 @date="13-01-2012", @amount=1000.0, @balance=2000.0>, #<Transaction
+:0x00007fe0ec10a020 @date="10-01-2012", @amount=1000.0, @balance=1000.0>]
+```
 
 ## Test Coverage Screenshot
 
