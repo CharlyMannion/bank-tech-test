@@ -6,8 +6,6 @@ describe BankAccount do
   subject(:account) { described_class.new(transaction_class: fake_transaction_class) }
   let(:fake_transaction_class) { double(:fake_transaction_class, new: transaction) }
   let(:transaction) { double(:transaction) }
-  let(:fake_formatted_statement) { double(:fake_formatted_statement, new: formatted_statement) }
-  let(:formatted_statement) { double(:formatted_statement) }
 
   it 'should respond to print_statement' do
     expect(account).to respond_to(:print_statement)
@@ -58,7 +56,7 @@ describe BankAccount do
   #     account.print_statement
   #     p account
   #     p account.bank_statement
-  #     expect(fake_formatted_statement).to have_received(:new)
+  #     expect(fake_formatted_statement).to have_received(:print)
   #   end
   # end
 end

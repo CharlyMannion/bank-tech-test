@@ -7,11 +7,10 @@ class BankAccount
 
   attr_reader :balance, :bank_statement
 
-  def initialize(transaction_class: Transaction, formatted_statement_class: FormattedStatement)
+  def initialize(transaction_class: Transaction)
     @balance = DEFAULT_BALANCE
     @bank_statement = []
     @transaction_class = transaction_class
-    @formatted_statement_class = formatted_statement_class
   end
 
   def deposit(date, amount)

@@ -10,8 +10,6 @@
         10,
         10,
         10,
-        1,
-        1,
         null,
         1,
         1,
@@ -81,7 +79,6 @@
         9,
         9,
         9,
-        9,
         null,
         null,
         1,
@@ -137,29 +134,19 @@
         null,
         null
       ],
-      "/Users/charlymannion/Projects/WeekNine/bank-tech-test/spec/formatted_statement_spec.rb": [
+      "/Users/charlymannion/Projects/WeekNine/bank-tech-test/spec/printer_spec.rb": [
         null,
         null,
         1,
         null,
         1,
-        1,
-        null,
-        null,
-        null,
-        null,
-        null,
         null,
         null
       ],
-      "/Users/charlymannion/Projects/WeekNine/bank-tech-test/lib/formatted_statement.rb": [
+      "/Users/charlymannion/Projects/WeekNine/bank-tech-test/lib/printer.rb": [
         null,
         null,
         1,
-        null,
-        null,
-        null,
-        null,
         null,
         null
       ],
@@ -185,6 +172,6 @@
         null
       ]
     },
-    "timestamp": 1529479514
+    "timestamp": 1529480285
   }
 }
