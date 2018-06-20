@@ -26,7 +26,7 @@ class BankAccount
   end
 
   def print_statement
-    @printer.print(@bank_statement)
+    @printer.print_format(@bank_statement)
   end
 
   private

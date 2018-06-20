@@ -10,7 +10,7 @@ describe Printer do
   let(:transaction3) { double(:transaction) }
 
   it 'should respond to print' do
-    expect(printer).to respond_to(:print)
+    expect(printer).to respond_to(:print_format)
   end
 
   describe '#print' do
@@ -19,7 +19,7 @@ describe Printer do
     # end
     it 'should print each transaction in the bank_statements' do
       bank_statement_array = [transaction1, transaction2, transaction3]
-      expect(printer.print(bank_statement_array)).to eq([transaction1, transaction2, transaction3])
+      expect(printer.print_format(bank_statement_array)).to eq([transaction1, transaction2, transaction3])
     end
   end
 end
