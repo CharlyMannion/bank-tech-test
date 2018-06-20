@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require './lib/transaction'
+require './lib/printer'
 
 class BankAccount
   DEFAULT_BALANCE = 0
@@ -11,6 +12,7 @@ class BankAccount
     @balance = DEFAULT_BALANCE
     @bank_statement = []
     @transaction_class = transaction_class
+    @printer = Printer.new
   end
 
   def deposit(date, amount)
@@ -24,8 +26,7 @@ class BankAccount
   end
 
   def print_statement
-  #   formatted_statement = @formatted_statement_class.new(@bank_statement)
-  #   formatted_statement
+    @printer.print(@bank_statement)
   end
 
   private

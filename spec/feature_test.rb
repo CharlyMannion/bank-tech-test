@@ -109,7 +109,15 @@ def printer_print_bank_statement
   p formatted_statement
 end
 
+def bank_account_print_statement
+  account = BankAccount.new
+  account.deposit('10-01-2012', 1000)
+  p account.bank_statement
+  account.print_statement
+end
+
 # create_printer
-printer_print_bank_statement
+# printer_print_bank_statement
+bank_account_print_statement
 
 # irb -r './spec/feature_test.rb'

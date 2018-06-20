@@ -6,6 +6,7 @@ describe BankAccount do
   subject(:account) { described_class.new(transaction_class: fake_transaction_class) }
   let(:fake_transaction_class) { double(:fake_transaction_class, new: transaction) }
   let(:transaction) { double(:transaction) }
+  let(:printer) { double(:printer) }
 
   it 'should respond to print_statement' do
     expect(account).to respond_to(:print_statement)
@@ -50,13 +51,12 @@ describe BankAccount do
     end
   end
 
-  # describe '#print_statement' do
-  #   it 'should create a formatted statement' do
-  #     account.deposit('10-01-2012', 1000)
-  #     account.print_statement
-  #     p account
-  #     p account.bank_statement
-  #     expect(fake_printer).to have_received(:print)
-  #   end
-  # end
+  describe '#print_statement' do
+    it 'should send a message to the the printer to print the bank statement' do
+      account.deposit('10-01-2012', 1000)
+      expected = [transaction]
+      allow(printer).to receive(:print) { expected }
+      expect(account.print_statement).to eq(expected)
+    end
+  end
 end
