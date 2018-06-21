@@ -4,8 +4,8 @@ require './lib/printer'
 
 describe Printer do
   subject(:printer) { described_class.new }
-  let(:transaction1) { double(:transaction, date: "10/01/2012", credit: "", debit: "1000.00", balance: "1000.00") }
-  let(:transaction2) { double(:transaction, date: "13/01/2012", credit: "", debit: "2000.00", balance: "3000.00") }
+  let(:transaction1) { double(:transaction, date: '10/01/2012', credit: '', debit: '1000.00', balance: '1000.00') }
+  let(:transaction2) { double(:transaction, date: '13/01/2012', credit: '', debit: '2000.00', balance: '3000.00') }
 
   describe '#print_format' do
     it 'prints the full bank statement' do
@@ -13,7 +13,8 @@ describe Printer do
       expected_transaction = "10/01/2012 ||  || 1000.00 || 1000.00\n"
       bank_statement = [transaction1]
       expected_statement = expected_heading + expected_transaction
-      expect { printer.print_format(bank_statement) }.to output(expected_statement).to_stdout
+      expect { printer.print_format(bank_statement) }
+        .to output(expected_statement).to_stdout
     end
     it 'prints the most recent transaction first' do
       expected_heading = "date || credit || debit || balance\n"
@@ -21,7 +22,8 @@ describe Printer do
       expected_transaction2 = "13/01/2012 ||  || 2000.00 || 3000.00\n"
       bank_statement = [transaction1, transaction2]
       expected_statement = expected_heading + expected_transaction2 + expected_transaction
-      expect { printer.print_format(bank_statement) }.to output(expected_statement).to_stdout
+      expect { printer.print_format(bank_statement) }
+        .to output(expected_statement).to_stdout
     end
   end
 end
