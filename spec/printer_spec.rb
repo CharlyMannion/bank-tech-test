@@ -8,14 +8,14 @@ describe Printer do
   let(:transaction2) { double(:transaction, date: "13/01/2012", credit: "", debit: "2000.00", balance: "3000.00") }
 
   describe '#print_format' do
-    it 'should print the full bank statement' do
+    it 'prints the full bank statement' do
       expected_heading = "date || credit || debit || balance\n"
       expected_transaction = "10/01/2012 ||  || 1000.00 || 1000.00\n"
       bank_statement = [transaction1]
       expected_statement = expected_heading + expected_transaction
       expect { printer.print_format(bank_statement) }.to output(expected_statement).to_stdout
     end
-    it 'should print the most recent transaction first' do
+    it 'prints the most recent transaction first' do
       expected_heading = "date || credit || debit || balance\n"
       expected_transaction = "10/01/2012 ||  || 1000.00 || 1000.00\n"
       expected_transaction2 = "13/01/2012 ||  || 2000.00 || 3000.00\n"

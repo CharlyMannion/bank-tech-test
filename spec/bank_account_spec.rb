@@ -10,10 +10,10 @@ describe BankAccount do
   let(:printer) { double(:printer, print_format: transaction) }
 
   describe '#initialize' do
-    it 'should have a default balance of nil' do
+    it 'the default balance of nil' do
       expect(account.balance).to eq BankAccount::DEFAULT_BALANCE
     end
-    it 'should have a bank statement' do
+    it 'it has an empty bank statement' do
       expect(account.bank_statement).to eq([])
     end
   end
@@ -22,14 +22,14 @@ describe BankAccount do
     before do
       account.deposit('10-01-2012', 1000)
     end
-    it 'should increase the bank balance by the specified amount' do
+    it 'increases the bank balance by the specified amount' do
       expect(account.balance).to eq 1000
     end
-    it 'should create a transaction with a credit value' do
+    it 'creates a transaction with a credit value' do
       expect(fake_transaction_class).to have_received(:new)
       .with('10-01-2012', 1000, 0, 1000)
     end
-    it 'should be recorded in the bank statement' do
+    it 'is recorded in the bank statement' do
       expect(account.bank_statement).to include(transaction)
     end
   end
@@ -39,27 +39,27 @@ describe BankAccount do
       account.deposit('13-01-2012', 3000)
       account.withdraw('14-01-2012', 500)
     end
-    it 'should reduce the bank balance by the specified amount' do
+    it 'reduces the bank balance by the specified amount' do
       expect(account.balance).to eq 2500
     end
-    it 'should create a transaction with a debit value' do
+    it 'creates a transaction with a debit value' do
       expect(fake_transaction_class).to have_received(:new)
       .with('14-01-2012', 0, 500, 2500)
     end
-    it 'should get recorded in the bank statement' do
+    it 'is recorded in the bank statement' do
       expect(account.bank_statement).to include(transaction)
     end
   end
 
-  describe 'attempted withdrawal when the balance is nil' do
-    it 'should throw an error if the user tries to withdraw when the balance is 0' do
+  describe 'when the bank account bank balance is 0' do
+    it 'raise an error if the user tries to withdraw' do
       allow(account).to receive(:balance) { 0 }
       expect { account.withdraw("15-01-2012", 5000000)}.to raise_error "Insufficient funds"
     end
   end
 
   describe '#print_statement' do
-    it 'should send a message to the the printer to print the bank statement' do
+    it 'sends a message to the the printer to print the bank statement' do
       account.deposit('10-01-2012', 1000)
       account.print_statement
       expect(fake_printer_class).to have_received(:new)
