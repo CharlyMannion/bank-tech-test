@@ -23,8 +23,13 @@ class BankAccount
 
   def withdraw(date, debit)
     credit = 0
-    update_balance(credit, -debit)
-    create_transaction(date, credit, debit, @balance)
+    # raise "Insufficient funds" if balance_is_zero?
+    # if @balance=0
+    #   raise "Insufficient funds"
+    # else
+      update_balance(credit, -debit)
+      create_transaction(date, credit, debit, @balance)
+    # end
   end
 
   def print_statement
@@ -42,5 +47,9 @@ class BankAccount
   def create_transaction(date, credit, debit, balance)
     transaction = @transaction_class.new(date, credit, debit, balance)
     @bank_statement << transaction
+  end
+
+  def balance_is_zero?
+    @balance = 0
   end
 end

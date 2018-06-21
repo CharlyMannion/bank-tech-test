@@ -35,18 +35,34 @@ describe BankAccount do
   end
 
   describe '#withdraw' do
-    before do
-      account.withdraw('14-01-2012', 500)
-    end
+    # before do
+    #   # allow(account).to receive(:balance) { 3000 }
+    #   # account.withdraw('14-01-2012', 500)
+    #   # p account.balance
+    # end
     it 'should reduce the bank balance by the specified amount' do
-      expect(account.balance).to eq -500
+      test_account = BankAccount.new
+      p test_account
+      test_account.deposit('13-01-2012', 3000)
+      p test_account
+      test_account.withdraw('14-01-2012', 500)
+      expect(test_account.balance).to eq 2500
     end
     it 'should create a transaction with a debit value' do
+      account.withdraw('14-01-2012', 500)
       expect(fake_transaction_class).to have_received(:new)
       .with('14-01-2012', 0, 500, -500)
     end
     it 'should get recorded in the bank statement' do
+      account.withdraw('14-01-2012', 500)
       expect(account.bank_statement).to include(transaction)
+    end
+  end
+
+  describe 'attempted withdrawal when the balance is nil' do
+    it 'should throw an error if the user tries to withdraw when the balance is 0' do
+      allow(account).to receive(:balance) { 0 }
+      expect { account.withdraw("15-01-2012", 5000000)}.to raise_error "Insufficient funds"
     end
   end
 
