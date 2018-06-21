@@ -18,14 +18,16 @@ class BankAccount
   def deposit(date, credit)
     debit = 0
     update_balance(credit, -debit)
+    debit = ''
     create_transaction(date, credit, debit, @balance)
   end
 
   def withdraw(date, debit)
     credit = 0
     raise "Insufficient funds" if balance_is_zero?
-      update_balance(credit, -debit)
-      create_transaction(date, credit, debit, @balance)
+    update_balance(credit, -debit)
+    credit = ''
+    create_transaction(date, credit, debit, @balance)
   end
 
   def print_statement
