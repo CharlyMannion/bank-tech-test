@@ -40,9 +40,8 @@ I want my bank statement to include my bank balance
 * I tried to be mindful that I might be required to extend the programme based on additional requirements, so I wrote code that should be easy to change (e.g. extract the bank statement in to its own class)
 
 ## Diagrams
-* file:///Users/charlymannion/Downloads/bank-tech-test.html
-<script type="text/javascript" src="https://www.draw.io/js/viewer.min.js"></script>
-* file:///Users/charlymannion/Downloads/bank-tech-test-2.html
+* View the diagrams in the repo here:
+https://github.com/CharlyMannion/bank-tech-test/tree/master/diagrams
 
 ## Installation
 * Clone the repo
