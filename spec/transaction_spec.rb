@@ -9,8 +9,8 @@ describe Transaction do
     it 'should have a date' do
       expect(transaction.date).to eq('10-01-2012')
     end
-    it 'should have an amount' do
-      expect(transaction.amount).to eq(1000)
+    it 'should have a value for debit' do
+      expect(transaction.debit).to eq(1000)
     end
     it 'should have a balance' do
       expect(transaction.balance).to eq(1000)
