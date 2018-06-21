@@ -16,28 +16,31 @@ class BankAccount
   end
 
   def deposit(date, credit)
-    update_balance(credit)
-    create_transaction(date, credit, @balance)
+    debit = 0
+    update_balance(credit, -debit)
+    create_transaction(date, credit, debit, @balance)
   end
 
-  def withdraw(date, amount)
-    update_balance(-amount)
-    create_transaction(date, amount, @balance)
+  def withdraw(date, debit)
+    credit = 0
+    update_balance(credit, -debit)
+    create_transaction(date, credit, debit, @balance)
   end
 
   def print_statement
-    printer =@printer_class.new
+    printer = @printer_class.new
     printer.print_format(@bank_statement)
   end
 
   private
 
-  def update_balance(amount)
-    @balance += amount
+  def update_balance(credit, debit)
+    @balance += credit
+    @balance += debit
   end
 
-  def create_transaction(date, amount, balance)
-    transaction = @transaction_class.new(date, amount, balance)
+  def create_transaction(date, credit, debit, balance)
+    transaction = @transaction_class.new(date, credit, debit, balance)
     @bank_statement << transaction
   end
 end
