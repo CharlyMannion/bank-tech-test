@@ -54,7 +54,7 @@ describe BankAccount do
   describe 'when the bank account bank balance is 0' do
     it 'raise an error if the user tries to withdraw' do
       allow(account).to receive(:balance) { 0 }
-      expect { account.withdraw("15-01-2012", 5000000)}.to raise_error "Insufficient funds"
+      expect { account.withdraw("15-01-2012", 5000000)}.to raise_error 'Insufficient funds'
     end
   end
 

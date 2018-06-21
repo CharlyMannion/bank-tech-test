@@ -48,6 +48,6 @@ class BankAccount
   end
 
   def balance_is_zero?
-    @balance == 0
+    @balance.zero?
   end
 end
