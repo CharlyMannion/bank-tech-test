@@ -8,16 +8,16 @@ class BankAccount
 
   attr_reader :balance, :bank_statement
 
-  def initialize(transaction_class: Transaction)
+  def initialize(transaction_class: Transaction, printer_class: Printer)
     @balance = DEFAULT_BALANCE
     @bank_statement = []
     @transaction_class = transaction_class
-    @printer = Printer.new
+    @printer_class = printer_class
   end
 
-  def deposit(date, amount)
-    update_balance(amount)
-    create_transaction(date, amount, @balance)
+  def deposit(date, credit)
+    update_balance(credit)
+    create_transaction(date, credit, @balance)
   end
 
   def withdraw(date, amount)
@@ -26,7 +26,8 @@ class BankAccount
   end
 
   def print_statement
-    @printer.print_format(@bank_statement)
+    printer =@printer_class.new
+    printer.print_format(@bank_statement)
   end
 
   private

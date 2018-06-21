@@ -6,6 +6,7 @@ describe BankAccount do
   subject(:account) { described_class.new(transaction_class: fake_transaction_class) }
   let(:fake_transaction_class) { double(:fake_transaction_class, new: transaction) }
   let(:transaction) { double(:transaction, date: "10/01/2012", credit: "", debit: "1000.00", balance: "1000.00") }
+  let(:fake_printer_class) { double(:fake_printer_class, new: printer) }
   let(:printer) { double(:printer) }
 
   describe '#initialize' do
@@ -24,8 +25,9 @@ describe BankAccount do
     it 'should increase the bank balance by the specified amount' do
       expect(account.balance).to eq 1000
     end
-    it 'should create a transaction' do
-      expect(fake_transaction_class).to have_received(:new).with('10-01-2012', 1000, 1000)
+    it 'should create a transaction with a credit value' do
+      expect(fake_transaction_class).to have_received(:new)
+      .with('10-01-2012', 1000, 1000)
     end
     it 'should be recorded in the bank statement' do
       expect(account.bank_statement).to include(transaction)
@@ -50,9 +52,8 @@ describe BankAccount do
   describe '#print_statement' do
     it 'should send a message to the the printer to print the bank statement' do
       account.deposit('10-01-2012', 1000)
-      expected = [transaction]
-      allow(printer).to receive(:print_format) { expected }
-      expect(account.print_statement).to eq(expected)
+      account.print_statement
+      expect(printer).to have_received(:print_format)
     end
   end
 end

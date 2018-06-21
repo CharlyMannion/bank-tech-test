@@ -38,7 +38,7 @@
 
 AllCops:
   Exclude:
-    - '.spec/spec_helper'
+    - 'spec/spec_helper'
     - 'Gemfile'
 
 Metrics/LineLength:
