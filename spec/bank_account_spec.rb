@@ -35,26 +35,18 @@ describe BankAccount do
   end
 
   describe '#withdraw' do
-    # before do
-    #   # allow(account).to receive(:balance) { 3000 }
-    #   # account.withdraw('14-01-2012', 500)
-    #   # p account.balance
-    # end
+    before do
+      account.deposit('13-01-2012', 3000)
+      account.withdraw('14-01-2012', 500)
+    end
     it 'should reduce the bank balance by the specified amount' do
-      test_account = BankAccount.new
-      p test_account
-      test_account.deposit('13-01-2012', 3000)
-      p test_account
-      test_account.withdraw('14-01-2012', 500)
-      expect(test_account.balance).to eq 2500
+      expect(account.balance).to eq 2500
     end
     it 'should create a transaction with a debit value' do
-      account.withdraw('14-01-2012', 500)
       expect(fake_transaction_class).to have_received(:new)
-      .with('14-01-2012', 0, 500, -500)
+      .with('14-01-2012', 0, 500, 2500)
     end
     it 'should get recorded in the bank statement' do
-      account.withdraw('14-01-2012', 500)
       expect(account.bank_statement).to include(transaction)
     end
   end

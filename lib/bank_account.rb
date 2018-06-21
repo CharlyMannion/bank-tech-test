@@ -23,7 +23,7 @@ class BankAccount
 
   def withdraw(date, debit)
     credit = 0
-    # raise "Insufficient funds" if balance_is_zero?
+    raise "Insufficient funds" if balance_is_zero?
     # if @balance=0
     #   raise "Insufficient funds"
     # else
@@ -50,6 +50,6 @@ class BankAccount
   end
 
   def balance_is_zero?
-    @balance = 0
+    @balance == 0
   end
 end
