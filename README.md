@@ -8,7 +8,7 @@ Practice tech test completed in Week 10 of Makers Academy
 ```
 As a client
 So I can manage my personal finances
-I want a bank account 
+I want a bank account
 
 As a client
 So I can add money to my bank account
@@ -44,32 +44,32 @@ I want my bank statement to include my bank balance
 * file:///Users/charlymannion/Downloads/bank-tech-test-2.html
 
 ## Installation
-* Clone the repo 
+* Clone the repo
 * Run bundle install
 * Run rspec to test
 
 ## Running the App
 ```
 Charlys-MacBook-Air:bank-tech-test charlymannion$ irb
+
 2.5.1 :001 > require './lib/bank_account'
  => true
 2.5.1 :002 > bank_account = BankAccount.new
- => #<BankAccount:0x00007fe0ec10ee18 @balance=0, @bank_statement=[], @transaction_class=Transaction, @printer=#<Printer:0x00007fe0ec10edc8>>
+ => #<BankAccount:0x00007f829a9ee840 @balance=0, @bank_statement=[], @transaction_class=Transaction, @printer_class=Printer>
 2.5.1 :003 > bank_account.deposit('10-01-2012', 1000.00)
- => [#<Transaction:0x00007fe0ec10a020 @date="10-01-2012", @amount=1000.0, @balance=1000.0>]
+ => [#<Transaction:0x00007f829a9e5ab0 @date="10-01-2012", @credit=1000.0, @debit="", @balance=1000.0>]
 2.5.1 :004 > bank_account.deposit('13-01-2012', 1000.00)
- => [#<Transaction:0x00007fe0ec10a020 @date="10-01-2012", @amount=1000.0, @balance=1000.0>, #<Transaction:0x00007fe0ec105250 @date="13-01-2012", @amount=1000.0, @balance=2000.0>]
+ => [#<Transaction:0x00007f829a9e5ab0 @date="10-01-2012", @credit=1000.0, @debit="", @balance=1000.0>, #<Transaction:0x00007f829a9dcc80 @date="13-01-2012", @credit=1000.0, @debit="", @balance=2000.0>]
 2.5.1 :005 > bank_account.withdraw('14-01-2012', 500.00)
- => [#<Transaction:0x00007fe0ec10a020 @date="10-01-2012", @amount=1000.0, @balance=1000.0>, #<Transaction:0x00007fe0ec105250 @date="13-01-2012", @amount=1000.0, @balance=2000.0>, #<Transactio
-n:0x00007fe0ec99bb58 @date="14-01-2012", @amount=500.0, @balance=1500.0>]
+ => [#<Transaction:0x00007f829a9e5ab0 @date="10-01-2012", @credit=1000.0, @debit="", @balance=1000.0>, #<Transaction:0x00007f829a9dcc80 @date="13-01-2012", @credit=1000.0, @debit="", @balance=2000.0>, #<T
+ransaction:0x00007f829a9cf4b8 @date="14-01-2012", @credit="", @debit=500.0, @balance=1500.0>]
 2.5.1 :006 > bank_account.print_statement
 date || credit || debit || balance
-14-01-2012 || 500.0 || 1500.0
-
-13-01-2012 || 1000.0 || 2000.0
-10-01-2012 || 1000.0 || 1000.0
- => [#<Transaction:0x00007fe0ec99bb58 @date="14-01-2012", @amount=500.0, @balance=1500.0>, #<Transaction:0x00007fe0ec105250 @date="13-01-2012", @amount=1000.0, @balance=2000.0>, #<Transaction
-:0x00007fe0ec10a020 @date="10-01-2012", @amount=1000.0, @balance=1000.0>]
+14-01-2012 ||  || 500.0 || 1500.0
+13-01-2012 || 1000.0 ||  || 2000.0
+10-01-2012 || 1000.0 ||  || 1000.0
+ => [#<Transaction:0x00007f829a9e5ab0 @date="10-01-2012", @credit=1000.0, @debit="", @balance=1000.0>, #<Transaction:0x00007f829a9dcc80 @date="13-01-2012", @credit=1000.0, @debit="", @balance=2000.0>, #<T
+ransaction:0x00007f829a9cf4b8 @date="14-01-2012", @credit="", @debit=500.0, @balance=1500.0>]
 ```
 
 ## Test Coverage
@@ -78,41 +78,41 @@ Charlys-MacBook-Air:bank-tech-test charlymannion$ rspec -fd
 
 BankAccount
   #initialize
-    should have a default balance of nil
-    should have a bank statement
+    the default balance of nil
+    it has an empty bank statement
   #deposit
-    should increase the bank balance by the specified amount
-    should create a transaction
-    should be recorded in the bank statement
+    increases the bank balance by the specified amount
+    creates a transaction with a credit value
+    is recorded in the bank statement
   #withdraw
-    should reduce the bank balance by the specified amount
-    should create a transaction
-    should get recorded in the bank statement
+    reduces the bank balance by the specified amount
+    creates a transaction with a debit value
+    is recorded in the bank statement
+  when the bank account bank balance is 0
+    raise an error if the user tries to withdraw
   #print_statement
-
-date || credit || debit || balance
-10/01/2012 || 1000.00 || 1000.00
-    should send a message to the the printer to print the bank statement
+    sends a message to the the printer to print the bank statement
 
 Printer
   #print_format
-    should print the full bank statement
-    should print the most recent transaction first
+    prints the full bank statement
+    prints the most recent transaction first
 
 Transaction
   #initialize
-    should have a date
-    should have an amount
-    should have a balance
+    has a date
+    has a value for debit
+    has a value for credit
+    has a balance
 
-Finished in 0.06862 seconds (files took 1.16 seconds to load)
-14 examples, 0 failures
+Finished in 0.08184 seconds (files took 1.18 seconds to load)
+16 examples, 0 failures
 
 
-COVERAGE: 100.00% -- 101/101 lines in 7 files
+COVERAGE: 100.00% -- 118/118 lines in 6 files
 ```
 
-## Technologies 
+## Technologies
 * ruby ~2.5.0
 * rspec
 * gem 'simplecov' - check the coverage of tests
