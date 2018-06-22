@@ -16,17 +16,12 @@ class BankAccount
   end
 
   def deposit(date, credit)
-    debit = 0
-    update_balance(credit, -debit)
-    debit = ''
-    create_transaction(date, credit, debit, @balance)
+    update_balance(date, credit: credit)
   end
 
   def withdraw(date, debit)
-    credit = nil
     raise 'Insufficient funds' if balance_is_zero?
-    update_balance(credit, -debit)
-    create_transaction(date, credit, debit, @balance)
+    update_balance(date, debit: debit)
   end
 
   def print_statement
@@ -36,9 +31,10 @@ class BankAccount
 
   private
 
-  def update_balance(credit, debit)
+  def update_balance(date, credit: nil, debit: nil)
     @balance += credit if credit
-    @balance += debit if debit
+    @balance -= debit if debit
+    create_transaction(date, credit, debit, @balance)
   end
 
   def create_transaction(date, credit, debit, balance)

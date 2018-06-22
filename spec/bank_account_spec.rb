@@ -27,7 +27,7 @@ describe BankAccount do
     end
     it 'creates a transaction with a credit value' do
       expect(fake_transaction_class).to have_received(:new)
-        .with('10-01-2012', 1000, '', 1000)
+        .with('10-01-2012', 1000, nil, 1000)
     end
     it 'is recorded in the bank statement' do
       expect(account.bank_statement).to include(transaction)
