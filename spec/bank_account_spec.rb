@@ -44,7 +44,7 @@ describe BankAccount do
     end
     it 'creates a transaction with a debit value' do
       expect(fake_transaction_class).to have_received(:new)
-        .with('14-01-2012', '', 500, 2500)
+        .with('14-01-2012', nil, 500, 2500)
     end
     it 'is recorded in the bank statement' do
       expect(account.bank_statement).to include(transaction)
