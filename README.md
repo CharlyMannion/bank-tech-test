@@ -1,7 +1,7 @@
 # Bank Tech Test
 
 ## Overview
-Practice tech test completed in Week 10 of Makers Academy
+A programme that allows a user to manage their personal finances.
 
 ## User Stories
 
