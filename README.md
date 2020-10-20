@@ -40,6 +40,8 @@ I want my bank statement to include my bank balance
 * I tried to be mindful that I might be required to extend the programme based on additional requirements, so I wrote code that should be easy to change (e.g. extract the bank statement in to its own class)
 
 ## Diagrams
+![Screenshot 2020-10-20 at 10 13 17](https://user-images.githubusercontent.com/28218869/96566116-1677c900-12bd-11eb-91d2-3f4be90c5204.png)
+![Screenshot 2020-10-20 at 10 13 31](https://user-images.githubusercontent.com/28218869/96566130-18da2300-12bd-11eb-8445-37eb64ae3090.png)
 * View the diagrams in the repo here:
 https://github.com/CharlyMannion/bank-tech-test/tree/master/diagrams
 
